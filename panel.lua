@@ -1,3 +1,10 @@
+spawnerStatusLabel.TextXAlignment = Enum.TextXAlignment.Left
+spawnerStatusLabel.Parent = spawnerFrame
+
+CreateButton(spawnerFrame, "Spawn High Tier (Tradable)", function()
+	local count, total = 0, 0
+	for _, entry in ipairs(WeaponCatalog) do
+		if SpawnerHighTierSet[entry.rarity] then
 			local amt = _randomAmount(entry.rarity, false)
 			SpawnItem(entry.key, amt, "Weapons")
 			count = count + 1
